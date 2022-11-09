@@ -48,9 +48,9 @@ public:
         if(ind == k){
             return nums[pi];
         }else if(ind<k){
-            return solve(nums,ind+1,l,k);
+            return helper(nums,ind+1,l,k);
         }else{
-            return solve(nums,f,ind-1,k);
+            return helper(nums,f,ind-1,k);
         }
         return 0;
     }
