@@ -27,3 +27,38 @@ public:
         
     }
 };
+// Another Solution
+class Solution {
+public:
+    int partition(vector<int>& nums, int f, int l,int mid){
+        int i=f; int j=f;
+        while(j<=l){
+            if(nums[j] <= mid){
+                swap(nums[i],nums[j]);
+                i++;j++;
+            }else{
+                j++;
+            }
+        }
+        return i-1;
+    }
+    int helper(vector<int>& nums, int f, int l,int k){
+        int piv = nums[l]; // Time exceed for mid and first element as worst case is n^2 (didn't use rand select as may lead to higher cost)
+        int ind = partition(nums,f,l,piv);
+        if(ind == k){
+            return nums[pi];
+        }else if(ind<k){
+            return solve(nums,ind+1,l,k);
+        }else{
+            return solve(nums,f,ind-1,k);
+        }
+        return 0;
+    }
+    int findKthLargest(vector<int>& nums, int k) {
+        int n=nums.size();
+        k = n-k;
+        int f = 0;
+        int l = n-1;
+        return helper(nums,f,l,k);
+    }
+};
