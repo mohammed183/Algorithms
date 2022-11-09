@@ -46,7 +46,7 @@ public:
         int piv = nums[l]; // Time exceed for mid and first element as worst case is n^2 (didn't use rand select as may lead to higher cost)
         int ind = partition(nums,f,l,piv);
         if(ind == k){
-            return nums[pi];
+            return nums[ind];
         }else if(ind<k){
             return helper(nums,ind+1,l,k);
         }else{
