@@ -27,7 +27,7 @@ public:
         
     }
 };
-// Another Solution
+// Another Solution ( I got time limit when you using partition however found this using different pivot and got accepted )
 class Solution {
 public:
     int partition(vector<int>& nums, int f, int l,int mid){
