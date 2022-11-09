@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        unordered_map <int, int> mp;
+        map <int, int> mp;
         for (auto i : nums) {
             mp[i]++;
         }
@@ -9,7 +9,6 @@ public:
         for(auto i : mp) {
             v.push_back({i.first, i.second});
         }
-        sort(v.begin(), v.end());
         int n = v.size();
         for (int i = 1; i < n; i++) {
             v[i].second += v[i-1].second;
